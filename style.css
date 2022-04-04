@@ -264,6 +264,7 @@ main .recent-posts .posts-area .boxpost {
   display: flex;
   justify-content: start;
   padding: 30px;
+  width: auto;
 }
 
 .recent-posts .posts-area .boxpost .box-image {
@@ -294,6 +295,13 @@ footer p a {
     flex-direction: column;
   }
 
+  .box {
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+    box-shadow: 1px 1px 5px #0005;
+  }
+
   aside {
     order: 1;
   }
@@ -304,5 +312,22 @@ footer p a {
 
   footer {
     order: 3;
+  }
+}
+
+@media (max-width: 720px) {
+  .projects .listCards {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  .projects .listCards .card {
+    max-width: 100%;
+    padding: 30px;
+  }
+
+  .projects .listCards .card small {
+    white-space: normal;
   }
 }
