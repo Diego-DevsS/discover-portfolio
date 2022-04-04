@@ -10,20 +10,299 @@
   --bg-cards: #302F3D;
   --bg-techs: #CB92B1;
 }
-html, body {
-  width: 100%;
-  height: auto;
 
-  min-height: 100vh;
+html, body {
+  height: auto;
+  
+  width: 100%;
+  min-height: 100%;
 }
 
 body {
-  
+  display: flex;
+  justify-content: center;
+
+  background-color: var(--body-bg-color);
+  color: var(--text-color);
+  font-family: 'Merriweather Sans', sans-serif;
 }
 
+.box {
+  background-color: var(--bg-cards);
+
+  border-radius: 15px;
+  margin: 15px;
+  padding: 15px;
+  box-shadow: 1px 1px 5px #0005;
+}
+
+.box-image {
+  width: 130px;
+  height: 130px;
+  background-color: var(--body-bg-color);
+  border-radius: 50%;
+}
+
+.image-profile {
+  width: 128px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 22px;
+}
+
+.projects .boxtitle, .recent-posts .boxtitle {
+  padding: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#container {
+  display: grid;
+  height: auto;
+
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 20px;
+
+  grid-template-areas: 
+  "aside maincontent"
+  "footer footer";
+
+  margin: 20px;
+}
 
 main {
+  grid-area: maincontent;
+
   height: auto;
-  width: auto;
-  max-width: 500px;
+  max-width: 1000px;
+}
+
+aside {
+  grid-area: aside;
+  
+  height: auto;
+  min-width: 328px;
+}
+
+/* aside */
+aside .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile .box-image {
+  border: 2px solid green;
+
+  display: flex;
+  align-items: initial;
+  justify-content: center;
+
+  margin: 20px 0 30px;
+}
+
+.profile h1 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.profile small {
+  margin-bottom: 20px;
+}
+
+aside .info-user a {
+  font-size: 12px;
+  margin: 10px 0;
+
+  color: var(--text-color);
+  
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+}
+
+.info-user a img {
+  margin: 0 10px;
+}
+
+aside .technology .technology-title {
+  margin: 10px 0 20px 10px;
+}
+
+.technology div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.technology div strong {
+  background-color: var(--bg-techs);
+  color: #000d;
+
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 30px;
+  font-size: 10px;
+}
+
+aside .experience .experience-title {
+  margin: 10px 0 0 10px;
+}
+
+.experience ul {
+  padding-left: 30px;
+}
+
+.experience ul li {
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+aside .education .education-title {
+  margin: 10px 0 0 10px;
+}
+
+.education ul {
+  padding-left: 30px;
+}
+
+.education ul li {
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+/* main */
+
+main  .projects .boxtitle a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.projects .listCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.projects .listCards .card {
+  max-width: 45%;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.projects .listCards .card h4 {
+  font-size: 16px;
+  font-weight: 700;
+
+  margin-bottom: 10px;
+  
+  display: flex;
+  align-items: center;
+}
+
+.projects .listCards .card h4 img {
+  margin-right: 10px;
+}
+
+.projects .listCards .card small {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 5px 0;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.projects .listCards .card .card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 5px;
+}
+
+.projects .listCards .card .card-info .card-info-reaction small {
+  margin-right: 10px;
+  vertical-align: text-top;
+}
+
+.projects .listCards .card .card-info .card-info-reaction small img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.projects .listCards .card .card-info .card-info-language div {
+  content: '';
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background-color: yellow;
+  border-radius: 50%;
+  border: 1px solid #eee;
+  margin-right: 10px;
+  vertical-align: text-top;
+}
+
+.projects .listCards .card .card-info .card-info-language {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+main .recent-posts .posts-area .boxpost {
+  display: flex;
+  justify-content: start;
+  padding: 30px;
+}
+
+.recent-posts .posts-area .boxpost .box-image {
+  margin-right: 20px;
+}
+
+.recent-posts .boxpost div h3,
+.recent-posts .boxpost div p,
+.recent-posts .boxpost div small {
+  margin: 10px 0;
+}
+
+footer {
+  grid-area: footer;
+  color: var(--text-color);
+  text-align: center;
+  font-size: 14px;
+}
+
+footer p a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+@media (max-width: 990px) {
+  #container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  aside {
+    order: 1;
+  }
+
+  main {
+    order: 2;
+  }
+
+  footer {
+    order: 3;
+  }
 }
